@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de Pago</title>
+    <link rel="stylesheet" href="YAPE.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Pasarela de Pago</h1>
+        <p class="info-message">Todos los pagos se depositarán en la siguiente cuenta bancaria:</p>
+        <div class="account-info">
+            <p><strong>Cuenta Bancaria:</strong> 4444 4444 4 4445466</p>
+        </div>
+        <form id="payment-form" class="animate__animated">
+            <div class="form-group">
+                <label for="payment-method">Método de Pago</label>
+                <select id="payment-method" required>
+                    <option value="" disabled selected>Seleccionar Método</option>
+                    <option value="card">Tarjeta de Crédito/Débito</option>
+                    <option value="bank">Transferencia Bancaria</option>
+                    <option value="yape">Yape</option>
+                </select>
+                <div id="payment-method-error" class="error-message"></div>
+            </div>
+
+            <div id="card-payment" class="payment-details" style="display: none;">
+                <div class="form-group">
+                    <label for="card-number">Número de Tarjeta</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                    <div id="card-number-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Fecha de Expiración</label>
+                    <input type="text" id="expiry-date" placeholder="MM/AA" required>
+                    <div id="expiry-date-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">Código de Seguridad (CVV)</label>
+                    <input type="text" id="cvv" placeholder="123" required>
+                    <div id="cvv-error" class="error-message"></div>
+                </div>
+            </div>
+
+            <div id="bank-payment" class="payment-details" style="display: none;">
+                <div class="form-group">
+                    <label for="bank-account">Número de Cuenta Bancaria</label>
+                    <input type="text" id="bank-account" placeholder="1234567890" required>
+                    <div id="bank-account-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="bank-name">Nombre del Banco</label>
+                    <input type="text" id="bank-name" placeholder="Banco Ejemplo" required>
+                    <div id="bank-name-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="iban">IBAN</label>
+                    <input type="text" id="iban" placeholder="ES1234567890123456789012" required>
+                    <div id="iban-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="swift">Código SWIFT</label>
+                    <input type="text" id="swift" placeholder="EXAMPLE123" required>
+                    <div id="swift-error" class="error-message"></div>
+                </div>
+            </div>
+
+            <div id="yape-payment" class="payment-details" style="display: none;">
+                <p class="yape-message">Para pagar a través de Yape, por favor haz clic en el botón a continuación.</p>
+                <p class="yape-info">Número de Yape: <strong>999 999 999</strong></p>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Monto</label>
+                <input type="text" id="amount" placeholder="$0.00" required>
+                <div id="amount-error" class="error-message"></div>
+            </div>
+            
+            <button type="button" id="pay-button" disabled>Pagar</button>
+        </form>
+    </div>
+    <script src="YAPE.JS"></script>
+</body>
+</html>
